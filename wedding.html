@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weddings Gallery | Benjamin Ade Photography</title> <link rel="icon" href="images/logoss.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <style>
+        /* ****************************************************************
+           CSS from your index.html <style> block, applied here.
+           (Including @keyframes imageSlideInFade and .swiper-slide-active img)
+           ****************************************************************
+        */
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        :root {
+            --header-height: 64px;
+        }
+
+        .hero-swiper-section {
+            margin-top: var(--header-height);
+            height: calc(100vh - var(--header-height));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swiper-container.hero-swiper {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .swiper-slide {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        @keyframes imageSlideInFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .swiper-slide-active img {
+            animation: imageSlideInFade 0.8s ease-out forwards;
+        }
+
+        .swiper-slide:not(.swiper-slide-active) img {
+            animation: none;
+            opacity: 1;
+            transform: none;
+        }
+
+        .swiper-pagination-bullet {
+            background: rgba(255, 255, 255, 0.6) !important;
+            opacity: 1 !important;
+            width: 10px !important;
+            height: 10px !important;
+            transition: background-color 0.3s ease, border 0.3s ease;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #ffffff !important;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: #ffffff !important;
+            background-color: rgba(0, 0, 0, 0.3) !important;
+            border-radius: 50% !important;
+            width: 44px !important;
+            height: 44px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            opacity: 0.8 !important;
+            transition: opacity 0.3s ease, background-color 0.3s ease;
+            z-index: 20;
+        }
+
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            opacity: 1 !important;
+            background-color: rgba(0, 0, 0, 0.5) !important;
+        }
+
+        .swiper-button-prev {
+            left: 20px !important;
+        }
+        .swiper-button-next {
+            right: 20px !important;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-md py-4 px-6 md:px-12 fixed w-full z-20 top-0">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-gray-800 hover:text-blue-600">
+                <img src="images/logoss.png" alt="Logo" class="h-12 w-812 object-contain">
+                <span class="text-2xl font-bold">TheBenAde</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+                <a href="gallery.html" class="text-gray-600 hover:text-blue-600">Gallery</a>
+                <a href="about.html" class="text-gray-600 hover:text-blue-600">About</a>
+                <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact</a>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden mt-2 px-6">
+            <a href="index.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Home</a>
+            <a href="gallery.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Gallery</a>
+            <a href="about.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">About</a>
+            <a href="contact.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Contact</a>
+        </div>
+    </header>
+
+    <section class="hero-swiper-section">
+        <div class="swiper mySwiper hero-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/AKPOBOME-8289.jpg" alt="Wedding Photo 1" class="w-full h-full object-cover">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/AKPOBOME-8315.jpg" alt="Wedding Photo 2" class="w-full h-full object-cover">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/AKPOBOME-8479.jpg" alt="Wedding Photo 3" class="w-full h-full object-cover">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/AKPOBOME-8519.jpg" alt="Wedding Photo 4" class="w-full h-full object-cover">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/AKPOBOME-8553.jpg" alt="Wedding Photo 5" class="w-full h-full object-cover">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/AKPOBOME-8561.jpg" alt="Wedding Photo 5" class="w-full h-full object-cover">
+                </div>
+                </div>
+
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <p>&copy; 2025 Benjamin Ade Photography. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Logic
+            const menuBtn = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Swiper Initialization
+            var swiper = new Swiper(".mySwiper", {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                grabCursor: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                slidesPerView: 2,
+                spaceBetween: 10,
+                breakpoints: {
+                    640: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+                }
+            });
+
+            // Feature for "click to show image separately" (Lightbox/Modal functionality)
+            const galleryImages = document.querySelectorAll('.swiper-slide img');
+            const body = document.body;
+
+            galleryImages.forEach(img => {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', function() {
+                    const modal = document.createElement('div');
+                    modal.style.position = 'fixed';
+                    modal.style.top = '0';
+                    modal.style.left = '0';
+                    modal.style.width = '100%';
+                    modal.style.height = '100%';
+                    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+                    modal.style.display = 'flex';
+                    modal.style.justifyContent = 'center';
+                    modal.style.alignItems = 'center';
+                    modal.style.zIndex = '9999';
+                    modal.style.cursor = 'zoom-out';
+
+                    const modalImg = document.createElement('img');
+                    modalImg.src = this.src;
+                    modalImg.style.maxWidth = '90%';
+                    modalImg.style.maxHeight = '90%';
+                    modalImg.style.objectFit = 'contain';
+
+                    modal.appendChild(modalImg);
+                    body.appendChild(modal);
+
+                    modal.addEventListener('click', () => {
+                        body.removeChild(modal);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

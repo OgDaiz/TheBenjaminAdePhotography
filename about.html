@@ -1,0 +1,85 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me | Benjamin Ade Photography</title>
+  <link rel="icon" href="images/logoss.png" type="image/png">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+ <header class="bg-white shadow-md py-4 px-6 md:px-12 fixed w-full z-20 top-0">
+  <nav class="container mx-auto flex justify-between items-center">
+<a href="index.html" class="flex items-center space-x-2 text-gray-800 hover:text-blue-600">
+  <img src="images/logoss.png" alt="Logo" class="h-8 w-8 object-contain">
+  <span class="text-2xl font-bold">TheBenAde</span>
+</a>
+    <div class="hidden md:flex space-x-8">
+      <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+      <a href="gallery.html" class="text-gray-600 hover:text-blue-600">Gallery</a>
+      <a href="about.html" class="text-gray-600 hover:text-blue-600">About</a>
+      <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact</a>
+    </div>
+    <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu" class="hidden md:hidden mt-2 px-6">
+    <a href="index.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Home</a>
+    <a href="gallery.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Gallery</a>
+    <a href="about.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">About</a>
+    <a href="contact.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Contact</a>
+  </div>
+</header>
+
+
+
+
+  <section class="py-24 bg-gray-50">
+    <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-12">
+     <div class="md:w-1/2">
+  <img src="images/Benjamin Ade-4.jpeg" alt="About Me" class="rounded-lg shadow-xl w-full h-auto object-cover">
+</div>
+      <div class="md:w-1/2 text-center md:text-left">
+        <h2 class="text-4xl font-bold mb-6 text-gray-800">About Me</h2>
+        <p class="text-lg text-gray-700 mb-4">
+          Hello! I'm a passionate photographer dedicated to capturing the beauty in everyday moments and grand landscapes alike.
+        </p>
+        <p class="text-lg text-gray-700">
+          I specialize in <span class="text-blue-600 font-semibold">landscape, portrait, and event photography</span>. I believe every picture has a story to tell.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 text-white py-8 text-center">
+    <p>&copy; 2025 OgDaiz. All rights reserved.</p>
+  </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', function () {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  });
+</script>
+
+
+</body>
+</html>
