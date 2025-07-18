@@ -3,79 +3,140 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weddings Gallery | Benjamin Ade Photography</title> <link rel="icon" href="images/logoss.png" type="image/png">
+    <title>Weddings Gallery | Benjamin Ade Photography</title>
+    <link rel="icon" href="images/logoss.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <style>
-        /* ****************************************************************
-           CSS from your index.html <style> block, applied here.
-           (Including @keyframes imageSlideInFade and .swiper-slide-active img)
-           ****************************************************************
-        */
-
+        /* IMPORTANT: Ensure html and body take full viewport height */
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
+            overflow: hidden; /* Prevent body scrollbar if content exceeds viewport */
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8f8f8;
+            background-color: #fdfafa; /* Changed from #f8f8f8 to match index.html */
             color: #333;
+            display: flex; /* Added for correct layout with fixed header */
+            flex-direction: column; /* Added for correct layout with fixed header */
         }
 
         :root {
-            --header-height: 64px;
+            --header-height: 48px; /* Changed from 64px to match index.html */
+            --header-total-offset: 100px; /* Added from index.html */
+            --swiper-nav-offset: 20px; /* Added from index.html */
         }
 
+        header {
+            flex-shrink: 0;
+            padding-top: 8px; /* Adjusted to match index.html */
+            padding-bottom: 8px; /* Adjusted to match index.html */
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed; /* Added for fixed header */
+            width: 100%; /* Added for fixed header */
+            z-index: 20; /* Added for fixed header */
+            top: 0; /* Added for fixed header */
+        }
+
+        /* Adjust logo and nav elements within header if they become too large for new header height */
+        header .h-12 {
+            height: 40px; /* Adjusted to match index.html */
+            width: auto; /* Added to match index.html */
+        }
+        header .text-2xl {
+            font-size: 1.5rem; /* Adjusted to match index.html */
+        }
+
+
+        /* Styles for the section containing the Swiper */
         .hero-swiper-section {
-            margin-top: var(--header-height);
-            height: calc(100vh - var(--header-height));
+            margin-top: var(--header-total-offset); /* Changed to use variable from index.html */
+            height: calc(100vh - var(--header-total-offset)); /* Changed to use variable from index.html */
+            flex-grow: 1; /* Added for correct layout with fixed header */
             position: relative;
             overflow: hidden;
+            box-sizing: border-box; /* Added from index.html */
+            width: 100%; /* Added from index.html */
         }
 
+        /* Swiper container takes full height of its parent section */
         .swiper-container.hero-swiper {
             height: 100%;
             width: 100%;
             position: relative;
         }
 
+        /* Ensure each Swiper slide takes full height and has proper overflow for images */
         .swiper-slide {
             height: 100%;
             overflow: hidden;
+            display: flex; /* Added from index.html */
+            align-items: center; /* Added from index.html */
+            justify-content: center; /* Added from index.html */
+            box-sizing: border-box; /* Added from index.html */
         }
 
-        @keyframes imageSlideInFade {
+        /* Styles for the image within the slide */
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            will-change: transform, opacity; /* Added from index.html */
+        }
+
+        /* Keyframes for the active image "glide-in" animation */
+        @keyframes imageGlideIn { /* Renamed from imageSlideInFade to match index.html */
             from {
                 opacity: 0;
-                transform: translateY(20px) scale(0.98);
+                transform: scale(0.85); /* Changed from translateY(20px) scale(0.98) to match index.html */
             }
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: scale(1); /* Changed from translateY(0) scale(1) to match index.html */
             }
         }
 
+        /* Apply animation to images within the active Swiper slide */
         .swiper-slide-active img {
-            animation: imageSlideInFade 0.8s ease-out forwards;
+            animation: imageGlideIn 0.8s ease-out forwards; /* Changed animation name to match index.html */
         }
 
+        /* Reset animation for non-active slides */
         .swiper-slide:not(.swiper-slide-active) img {
             animation: none;
             opacity: 1;
             transform: none;
         }
 
+        /* Styles for the copyright text, now positioned absolutely */
+        .copyright-text { /* Added from index.html */
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #0d0d0d;
+            text-align: center;
+            font-size: 0.7rem;
+            z-index: 10;
+            text-shadow: 0px 0px 3px rgba(192, 188, 188, 0.7);
+            width: 100%;
+            pointer-events: none;
+        }
+
+
+        /* Custom styles for Swiper pagination and navigation */
         .swiper-pagination-bullet {
             background: rgba(255, 255, 255, 0.6) !important;
             opacity: 1 !important;
-            width: 10px !important;
-            height: 10px !important;
+            width: 8px !important; /* Changed from 10px to match index.html */
+            height: 8px !important; /* Changed from 10px to match index.html */
             transition: background-color 0.3s ease, border 0.3s ease;
         }
 
@@ -88,8 +149,8 @@
             color: #ffffff !important;
             background-color: rgba(0, 0, 0, 0.3) !important;
             border-radius: 50% !important;
-            width: 44px !important;
-            height: 44px !important;
+            width: 36px !important; /* Changed from 44px to match index.html */
+            height: 36px !important; /* Changed from 44px to match index.html */
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -97,17 +158,37 @@
             transition: opacity 0.3s ease, background-color 0.3s ease;
             z-index: 20;
         }
+        /* Adjust icon size within buttons if needed */
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 16px !important; /* Added from index.html */
+        }
 
         .swiper-button-next:hover, .swiper-button-prev:hover {
             opacity: 1 !important;
             background-color: rgba(0, 0, 0, 0.5) !important;
         }
 
+        /* Adjusted arrow position using the new variable for more control */
         .swiper-button-prev {
-            left: 20px !important;
+            left: var(--swiper-nav-offset) !important; /* Changed to use variable from index.html */
         }
         .swiper-button-next {
-            right: 20px !important;
+            right: var(--swiper-nav-offset) !important; /* Changed to use variable from index.html */
+        }
+        @media (max-width: 768px) { /* Added mobile media query from index.html */
+            .hero-swiper-section {
+                height: 70vh !important;
+            }
+
+            .swiper-container.hero-swiper,
+            .swiper-slide {
+                height: 70% !important;
+            }
+
+            .swiper-slide img {
+                height: 70vh !important;
+                object-fit: cover !important;
+            }
         }
     </style>
 </head>
@@ -115,8 +196,8 @@
     <header class="bg-white shadow-md py-4 px-6 md:px-12 fixed w-full z-20 top-0">
         <nav class="container mx-auto flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2 text-gray-800 hover:text-blue-600">
-                <img src="images/logoss.png" alt="Logo" class="h-12 w-812 object-contain">
-                <span class="text-2xl font-bold">TheBenAde</span>
+                <img src="images/logoss.png" alt="Logo" class="h-12 object-contain">
+                <span class="text-2xl font-bold">BenjaminAde</span>
             </a>
             <div class="hidden md:flex space-x-8">
                 <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
@@ -163,17 +244,16 @@
                 <div class="swiper-slide">
                     <img src="images/AKPOBOME-8561.jpg" alt="Wedding Photo 5" class="w-full h-full object-cover">
                 </div>
-                </div>
+            </div>
 
             <div class="swiper-pagination"></div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
+        <div class="copyright-text">
+            <p>&copy; 2025 Benjamin Ade Photography. All rights reserved.</p>
+        </div>
     </section>
-
-    <footer class="bg-gray-800 text-white py-8 text-center">
-        <p>&copy; 2025 Benjamin Ade Photography. All rights reserved.</p>
-    </footer>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
@@ -208,21 +288,29 @@
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
                 },
-                slidesPerView: 2,
-                spaceBetween: 10,
+                effect: 'slide', // Ensures standard horizontal sliding
+                centeredSlides: true, // Essential for showing partial slides on the sides
+                slidesPerView: 1.5, // Default for very small screens: 1.5 visible slides (1 full, 0.5 of next/prev)
+                spaceBetween: 30,  // Increased spacing for a clear gap between images
+
+                // Breakpoints for responsive behavior
                 breakpoints: {
-                    640: {
-                        slidesPerView: 3,
-                        spaceBetween: 20,
-                    },
-                    768: {
-                        slidesPerView: 4,
+                    640: { // For screens >= 640px (small tablets)
+                        slidesPerView: 2.5, // Show 2.5 slides
                         spaceBetween: 30,
                     },
-                    1024: {
-                        slidesPerView: 4,
-                        spaceBetween: 30,
+                    768: { // For screens >= 768px (larger tablets/small desktops)
+                        slidesPerView: 3.5, // Show 3.5 slides (3 full + part of the 4th)
+                        spaceBetween: 40, // More spacing for larger screens
                     },
+                    1024: { // For screens >= 1024px (desktops)
+                        slidesPerView: 3.5,
+                        spaceBetween: 50, // Even more spacing
+                    },
+                    1280: { // For screens >= 1280px (larger desktops, if needed)
+                        slidesPerView: 3.5,
+                        spaceBetween: 60, // Adjust as needed
+                    }
                 }
             });
 
