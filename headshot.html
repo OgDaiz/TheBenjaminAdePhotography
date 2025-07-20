@@ -92,30 +92,6 @@
             will-change: transform, opacity;
         }
 
-        /* Keyframes for the active image "glide-in" animation */
-        @keyframes imageGlideIn {
-            from {
-                opacity: 0;
-                transform: scale(0.85);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* Apply animation to images within the active Swiper slide */
-        .swiper-slide-active img {
-            animation: imageGlideIn 0.8s ease-out forwards;
-        }
-
-        /* Reset animation for non-active slides */
-        .swiper-slide:not(.swiper-slide-active) img {
-            animation: none;
-            opacity: 1;
-            transform: none;
-        }
-
         /* Styles for the copyright text, now positioned absolutely */
         .copyright-text {
             position: absolute;
@@ -131,9 +107,8 @@
             pointer-events: none;
         }
 
-
-        /* Custom styles for Swiper pagination and navigation */
-        .swiper-pagination-bullet {
+        /* REMOVED: Custom styles for Swiper pagination bullets (no longer needed) */
+        /* .swiper-pagination-bullet {
             background: rgba(255, 255, 255, 0.6) !important;
             opacity: 1 !important;
             width: 8px !important;
@@ -144,7 +119,7 @@
         .swiper-pagination-bullet-active {
             background: #ffffff !important;
             border: 1px solid rgba(255, 255, 255, 0.8);
-        }
+        } */
 
         .swiper-button-next, .swiper-button-prev {
             color: #ffffff !important;
@@ -178,7 +153,7 @@
         }
         @media (max-width: 768px) {
             .hero-swiper-section {
-                height: 70vh !important;
+                height: 60vh !important;
             }
 
             .swiper-container.hero-swiper,
@@ -187,8 +162,14 @@
             }
 
             .swiper-slide img {
-                height: 70vh !important;
+                height: 60vh !important;
                 object-fit: cover !important;
+            }
+            :root {
+            --header-height: 48px;
+            /* MODIFIED: Increased total offset to push content down more, clearing the fixed header */
+            --header-total-offset: 150px; /* Increased from 60px */
+            --swiper-nav-offset: 20px;
             }
         }
     </style>
@@ -198,7 +179,7 @@
         <nav class="container mx-auto flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2 text-gray-800 hover:text-blue-600">
                 <img src="images/logoss.png" alt="Logo" class="h-12 object-contain">
-                <span class="text-2xl font-bold">BenjaminAde</span>
+                <span class="text-2xl font-bold">Benjamin Ade</span>
             </a>
             <div class="hidden md:flex space-x-8">
                 <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
@@ -259,7 +240,6 @@
                 </div>
             </div>
 
-            <div class="swiper-pagination"></div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
@@ -293,10 +273,11 @@
                     disableOnInteraction: false,
                 },
                 grabCursor: true,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
+                // REMOVED: Pagination configuration
+                // pagination: {
+                //     el: ".swiper-pagination",
+                //     clickable: true,
+                // },
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",

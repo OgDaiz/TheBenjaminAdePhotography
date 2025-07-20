@@ -1,85 +1,194 @@
-<!-- about.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me | Benjamin Ade Photography</title>
-  <link rel="icon" href="images/logoss.png" type="image/png">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me | Benjamin Ade Photography</title>
+    <link rel="icon" href="images/logoss.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfafa;
+            color: #333;
+            /* Ensure content below fixed header is visible */
+            padding-top: 80px; /* Adjust based on header height, roughly h-20 (80px) */
+        }
+        header {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        /* Adjust logo and nav elements within header for consistency */
+        header .h-12 {
+            height: 48px; /* Original h-12 is 48px, keeping this for consistency */
+            width: auto;
+        }
+
+        .about-image-container {
+            width: 100%;
+            max-width: 600px; /* Adjust this max-width for the image container as needed */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            max-height: 70vh; /* Limit image height to 70% of the viewport height */
+            object-fit: contain; /* Ensures the entire image is visible within the container */
+            display: block; /* Remove extra space below image */
+        }
+
+        .about-text-container {
+            width: 100%;
+            max-width: 900px; /* Adjust this max-width for the text container as needed */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center; /* Centers the text block horizontally */
+        }
+
+        /* Adjust section padding for better spacing */
+        .py-16 {
+            padding-top: 3rem; /* Slightly reduced top padding */
+            padding-bottom: 3rem; /* Slightly reduced bottom padding */
+        }
+        @media (min-width: 768px) {
+            .py-16 {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+            .about-image-container {
+                max-width: 700px; /* Larger image on bigger screens */
+            }
+            .about-image {
+                max-height: 80vh; /* Allow slightly taller image on bigger screens */
+            }
+        }
+        /* Further adjustments for text and heading sizes for better responsiveness */
+        .text-3xl { /* For H2 */
+            font-size: 2rem; /* Default for smaller screens */
+        }
+        @media (min-width: 768px) {
+            .text-3xl {
+                font-size: 2.5rem; /* Larger on medium screens */
+            }
+        }
+        @media (min-width: 1024px) {
+            .text-3xl {
+                font-size: 3rem; /* Even larger on large screens */
+            }
+        }
+
+        .text-base { /* For paragraphs */
+            font-size: 0.95rem; /* Default for smaller screens */
+        }
+        @media (min-width: 768px) {
+            .text-base {
+                font-size: 1.05rem; /* Larger on medium screens */
+            }
+        }
+        @media (min-width: 1024px) {
+            .text-base {
+                font-size: 1.15rem; /* Even larger on large screens */
+            }
+        }
+
+        /* Specific style for the final call to action */
+        .text-xl {
+            font-size: 1.25rem; /* Default for smaller screens */
+        }
+        @media (min-width: 768px) {
+            .text-xl {
+                font-size: 1.5rem; /* Larger on medium screens */
+            }
+        }
+        @media (min-width: 1024px) {
+            .text-xl {
+                font-size: 1.75rem; /* Even larger on large screens */
+            }
+        }
+    </style>
 </head>
 <body>
- <header class="bg-white shadow-md py-4 px-6 md:px-12 fixed w-full z-20 top-0">
-  <nav class="container mx-auto flex justify-between items-center">
-<a href="index.html" class="flex items-center space-x-2 text-gray-800 hover:text-blue-600">
-  <img src="images/logoss.png" alt="Logo" class="h-8 w-8 object-contain">
-  <span class="text-2xl font-bold">BenjaminAde</span>
-</a>
-    <div class="hidden md:flex space-x-8">
-      <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
-      <a href="gallery.html" class="text-gray-600 hover:text-blue-600">Gallery</a>
-      <a href="about.html" class="text-gray-600 hover:text-blue-600">About</a>
-      <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact</a>
-    </div>
-    <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-  </nav>
+    <header class="bg-white shadow-md py-4 px-6 md:px-12 fixed w-full z-20 top-0">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-gray-800 hover:text-blue-600">
+                <img src="images/logoss.png" alt="Logo" class="h-12 object-contain">
+                <span class="text-2xl font-bold">Benjamin Ade</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+                <a href="gallery.html" class="text-gray-600 hover:text-blue-600">Gallery</a>
+                <a href="about.html" class="text-gray-600 hover:text-blue-600">About</a>
+                <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact</a>
+            </div>
 
-  <!-- Mobile Nav -->
-  <div id="mobile-menu" class="hidden md:hidden mt-2 px-6">
-    <a href="index.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Home</a>
-    <a href="gallery.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Gallery</a>
-    <a href="about.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">About</a>
-    <a href="contact.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Contact</a>
-  </div>
-</header>
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
 
+        <div id="mobile-menu" class="hidden md:hidden mt-2 px-6">
+            <a href="index.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Home</a>
+            <a href="gallery.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Gallery</a>
+            <a href="about.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">About</a>
+            <a href="contact.html" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Contact</a>
+        </div>
+    </header>
 
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6 md:px-12 flex flex-col items-center gap-8 md:gap-12">
+            <div class="about-image-container">
+                <img src="images/Benjamin Ade-4.jpeg" alt="Benjamin Ade Portrait" class="about-image rounded-lg shadow-xl">
+            </div>
+            <div class="about-text-container">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">About Me</h2>
+                <p class="text-base md:text-lg text-gray-700 mb-4 leading-relaxed">
+                    I am Benjamin Adedotun Abolaji, PKA Benjamin Ade, a <span class="text-blue-600 font-semibold">headshot specialist and storytelling photographer</span> with a vision to create the most iconic portraits in the world. My work is more than just photography—it’s about <span class="text-blue-600 font-semibold">capturing legacy, presence, and authenticity</span> in every frame.
+                </p>
+                <p class="text-base md:text-lg text-gray-700 mb-4 leading-relaxed">
+                    My journey began in 2017 with a simple portrait session on a Samsung Galaxy S5. That moment ignited a passion that led me through years of learning, experimenting, and refining my craft. From volunteering at StarHub Church (Daystar Christian Centre’s youth church) to working with creatives, business leaders, and entertainers, I’ve built my approach on <span class="text-blue-600 font-semibold">simplicity, authenticity, and compelling storytelling</span>.
+                </p>
+                <p class="text-base md:text-lg text-gray-700 mb-4 leading-relaxed">
+                    What makes my headshots different? <span class="text-blue-600 font-semibold">The moment. The depth. The signature.</span> Whether in striking black and white or vibrant color, I focus on capturing genuine expressions that tell a story—images that go beyond just looking good and instead feel powerful, real, and unforgettable.
+                </p>
+                <p class="text-base md:text-lg text-gray-700 mb-4 leading-relaxed">
+                    I’ve had the honor of seeing my work make an impact, with one of my headshots being used by a <span class="text-blue-600 font-semibold">Forbes Under 30 honoree</span> and another winning <span class="text-blue-600 font-semibold">Best Compelling Headshot in Model Look 2023</span>. But this is just the beginning. My ultimate vision? For every great personality to have a headshot taken by Benjamin Ade.
+                </p>
+                <p class="text-base md:text-lg text-gray-700 mb-4 leading-relaxed">
+                    This vision solidified when I walked into Safron Hotel in Ikeja, Lagos, and saw the hallways lined with portraits of legends—Fela, King Sunny Ade, Oprah, Nelson Mandela, and other iconic figures. I realized in that moment: This is what I’ll do. I will <span class="text-blue-600 font-semibold">create images that stand the test of time</span>.
+                </p>
+                <p class="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">
+                    I am here to <span class="text-blue-600 font-semibold">work, collaborate, and create with the world’s most impactful individuals</span>, from magazines and media outlets to PR firms, entertainment giants, business leaders, and visionaries. Whether you are an industry titan, an artist, or someone passionate about how they present themselves to the world, I am ready to help you tell your story through photography.
+                </p>
+                <p class="text-xl md:text-2xl font-semibold text-blue-600">Let’s create something iconic.</p>
+            </div>
+        </div>
+    </section>
 
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <p>&copy; 2025 Benjamin Ade Productions. All rights reserved.</p>
+    </footer>
 
-  <section class="py-24 bg-gray-50">
-    <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-12">
-     <div class="md:w-1/2">
-  <img src="images/Benjamin Ade-4.jpeg" alt="About Me" class="rounded-lg shadow-xl w-full h-auto object-cover">
-</div>
-      <div class="md:w-1/2 text-center md:text-left">
-        <h2 class="text-4xl font-bold mb-6 text-gray-800">About Me</h2>
-        <p class="text-lg text-gray-700 mb-4">
-          I'm a photographer and creatuve director driven by one core obsession: capturing presence. my lens doesn't just take pictures 
-        </p>
-        <p class="text-lg text-gray-700">
-          I specialize in <span class="text-blue-600 font-semibold">landscape, portrait, and event photography</span>. I believe every picture has a story to tell.
-        </p>
-      </div>
-    </div>
-  </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-  <footer class="bg-gray-800 text-white py-8 text-center">
-    <p>&copy; 2025 OgDaiz. All rights reserved.</p>
-  </footer>
+            menuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const menuBtn = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuBtn.addEventListener('click', function () {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
-  });
-</script>
-
-
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -91,30 +91,7 @@
             will-change: transform, opacity; /* Added from index.html */
         }
 
-        /* Keyframes for the active image "glide-in" animation */
-        @keyframes imageGlideIn { /* Renamed from imageSlideInFade to match index.html */
-            from {
-                opacity: 0;
-                transform: scale(0.85); /* Changed from translateY(20px) scale(0.98) to match index.html */
-            }
-            to {
-                opacity: 1;
-                transform: scale(1); /* Changed from translateY(0) scale(1) to match index.html */
-            }
-        }
-
-        /* Apply animation to images within the active Swiper slide */
-        .swiper-slide-active img {
-            animation: imageGlideIn 0.8s ease-out forwards; /* Changed animation name to match index.html */
-        }
-
-        /* Reset animation for non-active slides */
-        .swiper-slide:not(.swiper-slide-active) img {
-            animation: none;
-            opacity: 1;
-            transform: none;
-        }
-
+       
         /* Styles for the copyright text, now positioned absolutely */
         .copyright-text { /* Added from index.html */
             position: absolute;
@@ -177,7 +154,7 @@
         }
         @media (max-width: 768px) { /* Added mobile media query from index.html */
             .hero-swiper-section {
-                height: 70vh !important;
+                height: 60vh !important;
             }
 
             .swiper-container.hero-swiper,
@@ -186,9 +163,14 @@
             }
 
             .swiper-slide img {
-                height: 70vh !important;
+                height: 60vh !important;
                 object-fit: cover !important;
             }
+             :root {
+            --header-height: 48px; /* Changed from 64px to match index.html */
+            --header-total-offset: 150px; /* Added from index.html */
+            --swiper-nav-offset: 20px; /* Added from index.html */
+        }
         }
     </style>
 </head>
@@ -197,7 +179,7 @@
         <nav class="container mx-auto flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2 text-gray-800 hover:text-blue-600">
                 <img src="images/logoss.png" alt="Logo" class="h-12 object-contain">
-                <span class="text-2xl font-bold">BenjaminAde</span>
+                <span class="text-2xl font-bold">Benjamin Ade</span>
             </a>
             <div class="hidden md:flex space-x-8">
                 <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
