@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Headshots Gallery | Benjamin Ade Photography</title>
+    <title>Headshots Gallery | Benjamin Ade Productions</title>
     <link rel="icon" href="images/logoss.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -84,11 +84,12 @@
             box-sizing: border-box;
         }
 
-        /* Styles for the image within the slide */
+        /* MODIFIED: Styles for the image within the slide for proper aspect ratio */
         .swiper-slide img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto; /* Allow height to adjust based on aspect ratio */
+            max-height: 100%; /* Ensure it doesn't exceed slide height */
+            object-fit: contain; /* IMPORTANT: Displays full image, no cropping */
             will-change: transform, opacity;
         }
 
@@ -106,20 +107,6 @@
             width: 100%;
             pointer-events: none;
         }
-
-        /* REMOVED: Custom styles for Swiper pagination bullets (no longer needed) */
-        /* .swiper-pagination-bullet {
-            background: rgba(255, 255, 255, 0.6) !important;
-            opacity: 1 !important;
-            width: 8px !important;
-            height: 8px !important;
-            transition: background-color 0.3s ease, border 0.3s ease;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: #ffffff !important;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        } */
 
         .swiper-button-next, .swiper-button-prev {
             color: #ffffff !important;
@@ -153,23 +140,22 @@
         }
         @media (max-width: 768px) {
             .hero-swiper-section {
-                height: 60vh !important;
+                height:100vh !important; /* Adjusted for better mobile display */
             }
 
             .swiper-container.hero-swiper,
             .swiper-slide {
-                height: 70% !important;
+                height: 100% !important; /* Ensure slides fill their container */
             }
 
             .swiper-slide img {
-                height: 60vh !important;
-                object-fit: cover !important;
+                height: auto !important; /* Allow height to adjust for aspect ratio */
+                max-height: 100% !important; /* Confine to slide height */
+                object-fit: contain !important; /* Crucial for preserving aspect ratio */
             }
             :root {
-            --header-height: 48px;
-            /* MODIFIED: Increased total offset to push content down more, clearing the fixed header */
-            --header-total-offset: 150px; /* Increased from 60px */
-            --swiper-nav-offset: 20px;
+                --header-total-offset: 150px; /* Adjusted for mobile header space */
+                --swiper-nav-offset: 10px; /* Reduced navigation button offset */
             }
         }
     </style>
@@ -209,34 +195,34 @@
         <div class="swiper mySwiper hero-swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="images/headshot (1).jpeg" alt="Headshot Photo 1" class="w-full h-full object-cover">
+                    <img src="images/headshot (1).jpeg" alt="Headshot Photo 1">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/headshot (10).jpeg" alt="Headshot Photo 2" class="w-full h-full object-cover">
+                    <img src="images/headshot (10).jpeg" alt="Headshot Photo 2">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/headshot (2).jpeg" alt="Headshot Photo 3" class="w-full h-full object-cover">
+                    <img src="images/headshot (2).jpeg" alt="Headshot Photo 3">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/headshot (3).jpeg" alt="Headshot Photo 4" class="w-full h-full object-cover">
+                    <img src="images/headshot (3).jpeg" alt="Headshot Photo 4">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/banner.jpeg" alt="Headshot Photo 5" class="w-full h-full object-cover">
+                    <img src="images/banner.jpeg" alt="Headshot Photo 5">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/headshot (4).jpeg" alt="Headshot Photo 5" class="w-full h-full object-cover">
+                    <img src="images/headshot (4).jpeg" alt="Headshot Photo 5">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/headshot (6).jpeg" alt="Headshot Photo 5" class="w-full h-full object-cover">
+                    <img src="images/headshot (6).jpeg" alt="Headshot Photo 5">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/headshot (7).jpeg" alt="Headshot Photo 5" class="w-full h-full object-cover">
+                    <img src="images/headshot (7).jpeg" alt="Headshot Photo 5">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/headshot (8).jpeg" alt="Headshot Photo 5" class="w-full h-full object-cover">
+                    <img src="images/headshot (8).jpeg" alt="Headshot Photo 5">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/headshot (9).jpeg" alt="Headshot Photo 5" class="w-full h-full object-cover">
+                    <img src="images/headshot (9).jpeg" alt="Headshot Photo 5">
                 </div>
             </div>
 
@@ -244,7 +230,7 @@
             <div class="swiper-button-prev"></div>
         </div>
         <div class="copyright-text">
-            <p>&copy; 2025 Benjamin Ade Photography. All rights reserved.</p>
+            <p>&copy; 2025 Benjamin Ade Productions. All rights reserved.</p>
         </div>
     </section>
 
@@ -273,37 +259,32 @@
                     disableOnInteraction: false,
                 },
                 grabCursor: true,
-                // REMOVED: Pagination configuration
-                // pagination: {
-                //     el: ".swiper-pagination",
-                //     clickable: true,
-                // },
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
                 },
-                effect: 'slide', // Ensures standard horizontal sliding
-                centeredSlides: true, // Essential for showing partial slides on the sides
-                slidesPerView: 1.5, // Default for very small screens: 1.5 visible slides (1 full, 0.5 of next/prev)
-                spaceBetween: 30,  // Increased spacing for a clear gap between images
+                effect: 'slide',
+                centeredSlides: true,
+                slidesPerView: 1.5,
+                spaceBetween: 30,
 
                 // Breakpoints for responsive behavior
                 breakpoints: {
-                    640: { // For screens >= 640px (small tablets)
-                        slidesPerView: 2.5, // Show 2.5 slides
+                    640: {
+                        slidesPerView: 2.5,
                         spaceBetween: 30,
                     },
-                    768: { // For screens >= 768px (larger tablets/small desktops)
-                        slidesPerView: 3.5, // Show 3.5 slides (3 full + part of the 4th)
-                        spaceBetween: 40, // More spacing for larger screens
-                    },
-                    1024: { // For screens >= 1024px (desktops)
+                    768: {
                         slidesPerView: 3.5,
-                        spaceBetween: 50, // Even more spacing
+                        spaceBetween: 40,
                     },
-                    1280: { // For screens >= 1280px (larger desktops, if needed)
+                    1024: {
                         slidesPerView: 3.5,
-                        spaceBetween: 60, // Adjust as needed
+                        spaceBetween: 50,
+                    },
+                    1280: {
+                        slidesPerView: 3.5,
+                        spaceBetween: 60,
                     }
                 }
             });
@@ -332,7 +313,7 @@
                     modalImg.src = this.src;
                     modalImg.style.maxWidth = '90%';
                     modalImg.style.maxHeight = '90%';
-                    modalImg.style.objectFit = 'contain';
+                    modalImg.style.objectFit = 'contain'; /* Ensure modal image is also fully visible */
 
                     modal.appendChild(modalImg);
                     body.appendChild(modal);

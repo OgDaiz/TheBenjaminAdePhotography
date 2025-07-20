@@ -81,15 +81,14 @@
             box-sizing: border-box;
         }
 
-        /* Styles for the image within the slide */
+        /* MODIFIED: Styles for the image within the slide for proper aspect ratio */
         .swiper-slide img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto; /* Allow height to adjust based on aspect ratio */
+            max-height: 100%; /* Ensure it doesn't exceed slide height */
+            object-fit: contain; /* IMPORTANT: Displays full image, no cropping */
             will-change: transform, opacity;
         }
-
-       
 
         /* Styles for the copyright text, now positioned absolutely */
         .copyright-text {
@@ -144,23 +143,23 @@
         }
         @media (max-width: 768px) {
             .hero-swiper-section {
-                height: 60vh !important;
+                height: 100vh !important; /* Adjusted for better mobile display */
             }
 
             .swiper-container.hero-swiper,
             .swiper-slide {
-                height: 70% !important;
+                height: 100% !important; /* Ensure slides fill their container */
             }
 
             .swiper-slide img {
-                height: 60vh !important;
-                object-fit: cover !important;
+                height: auto !important; /* Allow height to adjust for aspect ratio */
+                max-height: 100% !important; /* Confine to slide height */
+                object-fit: contain !important; /* Crucial for preserving aspect ratio */
             }
              :root {
-            --header-height: 48px;
-            --header-total-offset: 150px;
-            --swiper-nav-offset: 20px;
-        }
+            --header-total-offset: 150px; /* Adjusted for mobile header space */
+            --swiper-nav-offset: 10px; /* Reduced navigation button offset */
+            }
         }
 
         /* **NEW/FIXED**: Hide the Swiper lazy preloader (the "blue circle that rolls") */
@@ -204,79 +203,79 @@
         <div class="swiper mySwiper hero-swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="images/Chimamanda CC-4436.jpg" data-src="images/Chimamanda CC-4436.jpg" alt="Event Photo 1" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Chimamanda CC-4436.jpg" data-src="images/Chimamanda CC-4436.jpg" alt="Event Photo 1" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Femi Gbajabiamila- Book Reading CC-7187.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7187.jpg" alt="Event Photo 2" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Femi Gbajabiamila- Book Reading CC-7187.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7187.jpg" alt="Event Photo 2" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Balvenie 60-2028.jpg" data-src="images/Balvenie 60-2028.jpg" alt="Event Photo 3" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Balvenie 60-2028.jpg" data-src="images/Balvenie 60-2028.jpg" alt="Event Photo 3" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Chimamanda CC-4455.jpg" data-src="images/Chimamanda CC-4455.jpg" alt="Event Photo 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Chimamanda CC-4455.jpg" data-src="images/Chimamanda CC-4455.jpg" alt="Event Photo 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Femi Gbajabiamila- Book Reading CC-7482.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7482.jpg" alt="Event Photo 5" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Femi Gbajabiamila- Book Reading CC-7482.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7482.jpg" alt="Event Photo 5" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Balvenie 60- 2-2442.jpg" data-src="images/Balvenie 60- 2-2442.jpg" alt="Event Photo 6" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Balvenie 60- 2-2442.jpg" data-src="images/Balvenie 60- 2-2442.jpg" alt="Event Photo 6" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Balvenie 60- 2-2405.jpg" data-src="images/Balvenie 60- 2-2405.jpg" alt="Event Photo 7" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Balvenie 60- 2-2405.jpg" data-src="images/Balvenie 60- 2-2405.jpg" alt="Event Photo 7" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Chimamanda CC-4571.jpg" data-src="images/Chimamanda CC-4571.jpg" alt="Event Photo 8" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Chimamanda CC-4571.jpg" data-src="images/Chimamanda CC-4571.jpg" alt="Event Photo 8" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Balvenie 60-2235.jpg" data-src="images/Balvenie 60-2235.jpg" alt="Event Photo 9" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Balvenie 60-2235.jpg" data-src="images/Balvenie 60-2235.jpg" alt="Event Photo 9" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Chimamanda CC-4461.jpg" data-src="images/Chimamanda CC-4461.jpg" alt="Event Photo 10" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Chimamanda CC-4461.jpg" data-src="images/Chimamanda CC-4461.jpg" alt="Event Photo 10" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Balvenie 60-2169.jpg" data-src="images/Balvenie 60-2169.jpg" alt="Event Photo 11" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Balvenie 60-2169.jpg" data-src="images/Balvenie 60-2169.jpg" alt="Event Photo 11" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Chimamanda CC-4552.jpg" data-src="images/Chimamanda CC-4552.jpg" alt="Event Photo 12" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Chimamanda CC-4552.jpg" data-src="images/Chimamanda CC-4552.jpg" alt="Event Photo 12" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Chimamanda CC-4471.jpg" data-src="images/Chimamanda CC-4471.jpg" alt="Event Photo 13" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Chimamanda CC-4471.jpg" data-src="images/Chimamanda CC-4471.jpg" alt="Event Photo 13" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Chimamanda CC-4530.jpg" data-src="images/Chimamanda CC-4530.jpg" alt="Event Photo 13" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Chimamanda CC-4530.jpg" data-src="images/Chimamanda CC-4530.jpg" alt="Event Photo 13" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Chimamanda CC-4584.jpg" data-src="images/Chimamanda CC-4584.jpg" alt="Event Photo 13" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Chimamanda CC-4584.jpg" data-src="images/Chimamanda CC-4584.jpg" alt="Event Photo 13" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Chimamanda CC-4586.jpg" data-src="images/Chimamanda CC-4586.jpg" alt="Event Photo 13" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Chimamanda CC-4586.jpg" data-src="images/Chimamanda CC-4586.jpg" alt="Event Photo 13" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Femi Gbajabiamila- Book Reading CC-7136.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7136.jpg" alt="Event Photo 13" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Femi Gbajabiamila- Book Reading CC-7136.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7136.jpg" alt="Event Photo 13" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Femi Gbajabiamila- Book Reading CC-7117.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7117.jpg" alt="Event Photo 13" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Femi Gbajabiamila- Book Reading CC-7117.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7117.jpg" alt="Event Photo 13" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Femi Gbajabiamila- Book Reading CC-7392.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7392.jpg" alt="Event Photo 13" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Femi Gbajabiamila- Book Reading CC-7392.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7392.jpg" alt="Event Photo 13" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
             </div>
@@ -314,11 +313,6 @@
                     disableOnInteraction: false,
                 },
                 grabCursor: true,
-                // Pagination configuration REMAINS REMOVED as per your previous and current preference
-                // pagination: {
-                //     el: ".swiper-pagination",
-                //     clickable: true,
-                // },
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
@@ -381,7 +375,7 @@
                     modalImg.src = this.getAttribute('data-src') || this.src;
                     modalImg.style.maxWidth = '90%';
                     modalImg.style.maxHeight = '90%';
-                    modalImg.style.objectFit = 'contain';
+                    modalImg.style.objectFit = 'contain'; /* Ensure modal image is also fully visible */
 
                     modal.appendChild(modalImg);
                     body.appendChild(modal);

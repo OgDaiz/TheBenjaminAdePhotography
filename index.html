@@ -84,11 +84,15 @@
             box-sizing: border-box;
         }
 
-        /* Styles for the image within the slide */
+        /*
+        MODIFIED: Styles for the image within the slide
+        Changed object-fit to 'contain' and adjusted heights for better responsive behavior.
+        */
         .swiper-slide img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto; /* Allow height to adjust based on aspect ratio */
+            max-height: 100%; /* Ensure it doesn't exceed slide height */
+            object-fit: contain; /* IMPORTANT: Displays full image, no cropping */
         }
 
         /* Styles for the copyright text, now positioned absolutely */
@@ -137,26 +141,35 @@
         .swiper-button-next {
             right: var(--swiper-nav-offset) !important;
         }
+
+        /*
+        MODIFIED: Media query for mobile responsiveness
+        Adjusted heights and object-fit for mobile view.
+        */
         @media (max-width: 768px) {
             .hero-swiper-section {
-                height: 60vh !important;
+                /* Reduced height for mobile to allow more header/footer space if needed */
+                height: 100vh !important; /* Adjusted to give more vertical space */
             }
 
-            .swiper-container.hero-swiper,
+            .swiper-container.hero-swiper {
+                height: 100% !important;
+            }
             .swiper-slide {
-                height: 70% !important;
+                height: 100% !important; /* Ensure slides fill their container */
             }
 
             .swiper-slide img {
-                height: 60vh !important;
-                object-fit: cover !important;
+                height: auto !important; /* Allow height to adjust for aspect ratio */
+                max-height: 100% !important; /* Confine to slide height */
+                object-fit: contain !important; /* Crucial for preserving aspect ratio */
             }
              :root {
-            --header-height: 48px;
-            /* MODIFIED: Increased total offset to push content down more, clearing the fixed header */
-            --header-total-offset: 150px; /* Increased from 60px */
-            --swiper-nav-offset: 20px;
-        }
+                --header-height: 48px;
+                /* MODIFIED: Adjusted total offset for mobile to prevent content overlap */
+                --header-total-offset: 150px; /* Slightly adjusted to accommodate mobile header */
+                --swiper-nav-offset: 10px; /* Reduced navigation button offset for smaller screens */
+            }
         }
 
         /* --- NEW CSS ADDED --- */
@@ -213,100 +226,99 @@
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--13.jpg" data-src="images/Project30--13.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Project30--13.jpg" data-src="images/Project30--13.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Balvenie 60-2218.jpg" data-src="images/Balvenie 60-2218.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Balvenie 60-2218.jpg" data-src="images/Balvenie 60-2218.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/AKPOBOME-8553.jpg" data-src="images/AKPOBOME-8553.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/AKPOBOME-8553.jpg" data-src="images/AKPOBOME-8553.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Femi Gbajabiamila- Book Reading CC-7202.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7202.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Femi Gbajabiamila- Book Reading CC-7202.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7202.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Chimamanda CC-4399.jpg" data-src="images/Chimamanda CC-4399.jpg" alt="Dynamic Photography Scene 1" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Chimamanda CC-4399.jpg" data-src="images/Chimamanda CC-4399.jpg" alt="Dynamic Photography Scene 1" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Femi Gbajabiamila- Book Reading CC-7482.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7482.jpg" alt="Dynamic Photography Scene 1" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Femi Gbajabiamila- Book Reading CC-7482.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7482.jpg" alt="Dynamic Photography Scene 1" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--22.jpg" data-src="images/Project30--22.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Project30--22.jpg" data-src="images/Project30--22.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/bal.jpg" data-src="images/bal.jpg" alt="Dynamic Photography Scene 2" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/bal.jpg" data-src="images/bal.jpg" alt="Dynamic Photography Scene 2" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/headshot (4).jpg" data-src="images/headshot (4).jpg" alt="Dynamic Photography Scene 3" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/headshot (4).jpg" data-src="images/headshot (4).jpg" alt="Dynamic Photography Scene 3" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/headshot (9).jpeg" data-src="images/headshot (9).jpeg" alt="Dynamic Photography Scene 3" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/headshot (9).jpeg" data-src="images/headshot (9).jpeg" alt="Dynamic Photography Scene 3" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
-                    <div class="swiper-lazy-preloader"></div>
-                </div>
-                 <div class="swiper-slide">
-                    <img src="images/Reckless--2.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
-                    <div class="swiper-lazy-preloader"></div>
-                </div>
-                 
-                <div class="swiper-slide">
-                    <img src="images/Chimamanda CC-4461.jpg" data-src="images/Chimamanda CC-4461.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Chimamanda CC-4450.jpg" data-src="images/Chimamanda CC-4450.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Reckless--2.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Chimamanda CC-4586.jpg" data-src="images/Chimamanda CC-4586.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Chimamanda CC-4461.jpg" data-src="images/Chimamanda CC-4461.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Femi Gbajabiamila- Book Reading CC-7053.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7053.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Chimamanda CC-4450.jpg" data-src="images/Chimamanda CC-4450.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Femi Gbajabiamila- Book Reading CC-7073.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7073.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Chimamanda CC-4586.jpg" data-src="images/Chimamanda CC-4586.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Femi Gbajabiamila- Book Reading CC-7473.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7473.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Femi Gbajabiamila- Book Reading CC-7053.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7053.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Femi Gbajabiamila- Book Reading CC-7392.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7392.jpg" alt="Event Photo 13" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Femi Gbajabiamila- Book Reading CC-7073.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7073.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Balvenie 60-2211.jpg" data-src="images/Balvenie 60-2211.jpg" alt="Event Photo 13" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Femi Gbajabiamila- Book Reading CC-7473.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7473.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Balvenie 60-2104.jpg" data-src="images/Balvenie 60-2104.jpg" alt="Event Photo 13" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Femi Gbajabiamila- Book Reading CC-7392.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7392.jpg" alt="Event Photo 13" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/headshot (7).jpeg" data-src="images/headshot (7).jpeg" alt="Dynamic Photography Scene 4" class="landscape swiper-lazy">
+                    <img src="images/Balvenie 60-2211.jpg" data-src="images/Balvenie 60-2211.jpg" alt="Event Photo 13" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/headshot (1).jpeg" data-src="images/headshot (1).jpeg" alt="Dynamic Photography Scene 4" class="landscape swiper-lazy">
+                    <img src="images/Balvenie 60-2104.jpg" data-src="images/Balvenie 60-2104.jpg" alt="Event Photo 13" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/headshot (2).jpeg" data-src="images/headshot (2).jpeg" alt="Dynamic Photography Scene 3" class="landscape swiper-lazy">
+                    <img src="images/headshot (7).jpeg" data-src="images/headshot (7).jpeg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
+                    <div class="swiper-lazy-preloader"></div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/headshot (1).jpeg" data-src="images/headshot (1).jpeg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
+                    <div class="swiper-lazy-preloader"></div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/headshot (2).jpeg" data-src="images/headshot (2).jpeg" alt="Dynamic Photography Scene 3" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
 
@@ -404,10 +416,10 @@
 
                     const modalImg = document.createElement('img');
                     // For lazy loading, use data-src if it exists, otherwise src
-                    modalImg.src = this.getAttribute('data-src') || this.src; 
+                    modalImg.src = this.getAttribute('data-src') || this.src;
                     modalImg.style.maxWidth = '90%';
                     modalImg.style.maxHeight = '90%';
-                    modalImg.style.objectFit = 'contain';
+                    modalImg.style.objectFit = 'contain'; /* Ensure modal image is also fully visible */
 
                     modal.appendChild(modalImg);
                     body.appendChild(modal);

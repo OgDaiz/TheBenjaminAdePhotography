@@ -21,49 +21,48 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fdfafa; /* Changed from #f8f8f8 to match index.html */
+            background-color: #fdfafa;
             color: #333;
-            display: flex; /* Added for correct layout with fixed header */
-            flex-direction: column; /* Added for correct layout with fixed header */
+            display: flex;
+            flex-direction: column;
         }
 
         :root {
-            --header-height: 48px; /* Changed from 64px to match index.html */
-            --header-total-offset: 100px; /* Adjusted to accommodate header + potential top space */
-            --swiper-nav-offset: 20px; /* Added from index.html */
+            --header-height: 48px;
+            --header-total-offset: 100px;
+            --swiper-nav-offset: 20px;
         }
 
         header {
             flex-shrink: 0;
-            padding-top: 8px; /* Adjusted to match index.html */
-            padding-bottom: 8px; /* Adjusted to match index.html */
+            padding-top: 8px;
+            padding-bottom: 8px;
             background-color: #ffffff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: fixed; /* Added for fixed header */
-            width: 100%; /* Added for fixed header */
-            z-index: 20; /* Added for fixed header */
-            top: 0; /* Added for fixed header */
+            position: fixed;
+            width: 100%;
+            z-index: 20;
+            top: 0;
         }
 
         /* Adjust logo and nav elements within header if they become too large for new header height */
         header .h-12 {
-            height: 40px; /* Adjusted to match index.html */
-            width: auto; /* Added to match index.html */
+            height: 40px;
+            width: auto;
         }
         header .text-2xl {
-            font-size: 1.5rem; /* Adjusted to match index.html */
+            font-size: 1.5rem;
         }
-
 
         /* Styles for the section containing the Swiper */
         .hero-swiper-section {
-            margin-top: var(--header-total-offset); /* Changed to use variable from index.html */
-            height: calc(100vh - var(--header-total-offset)); /* Changed to use variable from index.html */
-            flex-grow: 1; /* Added for correct layout with fixed header */
+            margin-top: var(--header-total-offset);
+            height: calc(100vh - var(--header-total-offset));
+            flex-grow: 1;
             position: relative;
             overflow: hidden;
-            box-sizing: border-box; /* Added from index.html */
-            width: 100%; /* Added from index.html */
+            box-sizing: border-box;
+            width: 100%;
         }
 
         /* Swiper container takes full height of its parent section */
@@ -77,36 +76,23 @@
         .swiper-slide {
             height: 100%;
             overflow: hidden;
-            display: flex; /* Added from index.html */
-            align-items: center; /* Added from index.html */
-            justify-content: center; /* Added from index.html */
-            box-sizing: border-box; /* Added from index.html */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
         }
 
-        /* Styles for the image within the slide */
+        /* MODIFIED: Styles for the image within the slide for proper aspect ratio */
         .swiper-slide img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Removed Keyframes for the active image "glide-in" animation */
-
-        /* Removed Apply animation to images within the active Swiper slide */
-        .swiper-slide-active img {
-            opacity: 1; /* Ensure opacity is 1 by default */
-            transform: scale(1); /* Ensure scale is 1 by default */
-        }
-
-        /* Reset animation for non-active slides (now effectively no change) */
-        .swiper-slide:not(.swiper-slide-active) img {
-            animation: none;
-            opacity: 1;
-            transform: none;
+            height: auto; /* Allow height to adjust based on aspect ratio */
+            max-height: 100%; /* Ensure it doesn't exceed slide height */
+            object-fit: contain; /* IMPORTANT: Displays full image, no cropping */
+            will-change: transform, opacity;
         }
 
         /* Styles for the copyright text, now positioned absolutely */
-        .copyright-text { /* Added from index.html */
+        .copyright-text {
             position: absolute;
             bottom: 10px;
             left: 50%;
@@ -120,27 +106,18 @@
             pointer-events: none;
         }
 
-
-        /* Removed custom styles for Swiper pagination bullets */
-        /* .swiper-pagination-bullet {
-            background: rgba(255, 255, 255, 0.6) !important;
-            opacity: 1 !important;
-            width: 8px !important;
-            height: 8px !important;
-            transition: background-color 0.3s ease, border 0.3s ease;
+        /* **REMOVED PAGINATION DOTS**: Hide the pagination container */
+        .swiper-pagination {
+            display: none !important;
         }
 
-        .swiper-pagination-bullet-active {
-            background: #ffffff !important;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        } */
-
+        /* Custom styles for Swiper navigation arrows */
         .swiper-button-next, .swiper-button-prev {
             color: #ffffff !important;
             background-color: rgba(0, 0, 0, 0.3) !important;
             border-radius: 50% !important;
-            width: 36px !important; /* Changed from 44px to match index.html */
-            height: 36px !important; /* Changed from 44px to match index.html */
+            width: 36px !important;
+            height: 36px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -150,7 +127,7 @@
         }
         /* Adjust icon size within buttons if needed */
         .swiper-button-next::after, .swiper-button-prev::after {
-            font-size: 16px !important; /* Added from index.html */
+            font-size: 16px !important;
         }
 
         .swiper-button-next:hover, .swiper-button-prev:hover {
@@ -160,30 +137,35 @@
 
         /* Adjusted arrow position using the new variable for more control */
         .swiper-button-prev {
-            left: var(--swiper-nav-offset) !important; /* Changed to use variable from index.html */
+            left: var(--swiper-nav-offset) !important;
         }
         .swiper-button-next {
-            right: var(--swiper-nav-offset) !important; /* Changed to use variable from index.html */
+            right: var(--swiper-nav-offset) !important;
         }
-        @media (max-width: 768px) { /* Added mobile media query from index.html */
+        @media (max-width: 768px) {
             .hero-swiper-section {
-                height: 60vh !important;
+                height: 100vh !important; /* Adjusted for better mobile display */
             }
 
             .swiper-container.hero-swiper,
             .swiper-slide {
-                height: 70% !important;
+                height: 100% !important; /* Ensure slides fill their container */
             }
 
             .swiper-slide img {
-                height: 60vh !important;
-                object-fit: cover !important;
+                height: auto !important; /* Allow height to adjust for aspect ratio */
+                max-height: 100% !important; /* Confine to slide height */
+                object-fit: contain !important; /* Crucial for preserving aspect ratio */
             }
              :root {
-            --header-height: 48px; /* Changed from 64px to match index.html */
-            --header-total-offset: 150px; /* Adjusted to accommodate header + potential top space */
-            --swiper-nav-offset: 20px; /* Added from index.html */
+                --header-total-offset: 150px; /* Adjusted for mobile header space */
+                --swiper-nav-offset: 10px; /* Reduced navigation button offset */
+            }
         }
+
+        /* **NEW/FIXED**: Hide the Swiper lazy preloader (the "blue circle that rolls") */
+        .swiper-lazy-preloader {
+            display: none !important;
         }
     </style>
 </head>
@@ -222,55 +204,55 @@
         <div class="swiper mySwiper hero-swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="images/Project30--23.jpg" alt="Editorial Fashion Image 1" class="w-full h-full object-cover">
+                    <img src="images/Project30--23.jpg" alt="Editorial Fashion Image 1">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30-2 (1).jpg" alt="Editorial Fashion Image 2" class="w-full h-full object-cover">
+                    <img src="images/Project30-2 (1).jpg" alt="Editorial Fashion Image 2">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/bal.jpg" alt="Editorial Fashion Image 3" class="w-full h-full object-cover">
+                    <img src="images/bal.jpg" alt="Editorial Fashion Image 3">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30-2-10.jpg" alt="Editorial Fashion Image 4" class="w-full h-full object-cover">
+                    <img src="images/Project30-2-10.jpg" alt="Editorial Fashion Image 4">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--33.jpg" alt="Editorial Fashion Image 5" class="w-full h-full object-cover">
+                    <img src="images/Project30--33.jpg" alt="Editorial Fashion Image 5">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--12.jpg" alt="Editorial Fashion Image 6" class="w-full h-full object-cover">
+                    <img src="images/Project30--12.jpg" alt="Editorial Fashion Image 6">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Balvenie 60-2218.jpg" alt="Editorial Fashion Image 6" class="w-full h-full object-cover">
+                    <img src="images/Balvenie 60-2218.jpg" alt="Editorial Fashion Image 6">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Reckless--2.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Reckless--2.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Balvenie 60-2235.jpg" alt="Editorial Fashion Image 6" class="w-full h-full object-cover">
+                    <img src="images/Balvenie 60-2235.jpg" alt="Editorial Fashion Image 6">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Benjamin Ade-4.jpeg" alt="Editorial Fashion Image 7" class="w-full h-full object-cover">
+                    <img src="images/Benjamin Ade-4.jpeg" alt="Editorial Fashion Image 7">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Balvenie 60-1992.jpg" alt="Editorial Fashion Image 8" class="w-full h-full object-cover">
+                    <img src="images/Balvenie 60-1992.jpg" alt="Editorial Fashion Image 8">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Reckless--6.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Reckless--6.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Reckless--4.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Reckless--4.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Balvenie 60-1982.jpg" alt="Editorial Fashion Image 9" class="w-full h-full object-cover">
+                    <img src="images/Balvenie 60-1982.jpg" alt="Editorial Fashion Image 9">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Balvenie 60-1986.jpg" alt="Editorial Fashion Image 10" class="w-full h-full object-cover">
+                    <img src="images/Balvenie 60-1986.jpg" alt="Editorial Fashion Image 10">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Reckless--3.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" alt="Dynamic Photography Scene 4" class="w-full h-full object-cover swiper-lazy">
+                    <img src="images/Reckless--3.jpg" data-src="images/Femi Gbajabiamila- Book Reading CC-7058.jpg" alt="Dynamic Photography Scene 4" class="swiper-lazy">
                     <div class="swiper-lazy-preloader"></div>
                 </div>
             </div>
@@ -308,13 +290,6 @@
                     disableOnInteraction: false,
                 },
                 grabCursor: true,
-                // Removed pagination configuration
-                /*
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
-                */
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
@@ -323,6 +298,13 @@
                 centeredSlides: true,
                 slidesPerView: 1.5,
                 spaceBetween: 30,
+
+                // Lazy Loading configuration
+                lazy: {
+                    loadOnTransitionStart: true,
+                    loadPrevNext: true,
+                    loadPrevNextAmount: 2,
+                },
 
                 // Breakpoints for responsive behavior
                 breakpoints: {
@@ -365,11 +347,12 @@
                     modal.style.zIndex = '9999';
                     modal.style.cursor = 'zoom-out';
 
+                    // Use data-src for lazy-loaded images, fallback to src
                     const modalImg = document.createElement('img');
-                    modalImg.src = this.src;
+                    modalImg.src = this.getAttribute('data-src') || this.src;
                     modalImg.style.maxWidth = '90%';
                     modalImg.style.maxHeight = '90%';
-                    modalImg.style.objectFit = 'contain';
+                    modalImg.style.objectFit = 'contain'; /* Ensure modal image is also fully visible */
 
                     modal.appendChild(modalImg);
                     body.appendChild(modal);

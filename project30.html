@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project30 Gallery | Benjamin Ade Photography</title>
+    <title>Project30 Gallery | Benjamin Ade Productions</title>
     <link rel="icon" href="images/logoss.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -21,49 +21,49 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fdfafa; /* Changed from #f8f8f8 to match index.html */
+            background-color: #fdfafa;
             color: #333;
-            display: flex; /* Added for correct layout with fixed header */
-            flex-direction: column; /* Added for correct layout with fixed header */
+            display: flex;
+            flex-direction: column;
         }
 
         :root {
-            --header-height: 48px; /* Changed from 64px to match index.html */
-            --header-total-offset: 100px; /* Added from index.html */
-            --swiper-nav-offset: 20px; /* Added from index.html */
+            --header-height: 48px;
+            --header-total-offset: 100px;
+            --swiper-nav-offset: 20px;
         }
 
         header {
             flex-shrink: 0;
-            padding-top: 8px; /* Adjusted to match index.html */
-            padding-bottom: 8px; /* Adjusted to match index.html */
+            padding-top: 8px;
+            padding-bottom: 8px;
             background-color: #ffffff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: fixed; /* Added for fixed header */
-            width: 100%; /* Added for fixed header */
-            z-index: 20; /* Added for fixed header */
-            top: 0; /* Added for fixed header */
+            position: fixed;
+            width: 100%;
+            z-index: 20;
+            top: 0;
         }
 
         /* Adjust logo and nav elements within header if they become too large for new header height */
         header .h-12 {
-            height: 40px; /* Adjusted to match index.html */
-            width: auto; /* Added to match index.html */
+            height: 40px;
+            width: auto;
         }
         header .text-2xl {
-            font-size: 1.5rem; /* Adjusted to match index.html */
+            font-size: 1.5rem;
         }
 
 
         /* Styles for the section containing the Swiper */
         .hero-swiper-section {
-            margin-top: var(--header-total-offset); /* Changed to use variable from index.html */
-            height: calc(100vh - var(--header-total-offset)); /* Changed to use variable from index.html */
-            flex-grow: 1; /* Added for correct layout with fixed header */
+            margin-top: var(--header-total-offset);
+            height: calc(100vh - var(--header-total-offset));
+            flex-grow: 1;
             position: relative;
             overflow: hidden;
-            box-sizing: border-box; /* Added from index.html */
-            width: 100%; /* Added from index.html */
+            box-sizing: border-box;
+            width: 100%;
         }
 
         /* Swiper container takes full height of its parent section */
@@ -77,23 +77,23 @@
         .swiper-slide {
             height: 100%;
             overflow: hidden;
-            display: flex; /* Added from index.html */
-            align-items: center; /* Added from index.html */
-            justify-content: center; /* Added from index.html */
-            box-sizing: border-box; /* Added from index.html */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
         }
 
-        /* Styles for the image within the slide */
+        /* MODIFIED: Styles for the image within the slide for proper aspect ratio */
         .swiper-slide img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            will-change: transform, opacity; /* Added from index.html */
+            height: auto; /* Allow height to adjust based on aspect ratio */
+            max-height: 100%; /* Ensure it doesn't exceed slide height */
+            object-fit: contain; /* IMPORTANT: Displays full image, no cropping */
+            will-change: transform, opacity;
         }
 
-       
         /* Styles for the copyright text, now positioned absolutely */
-        .copyright-text { /* Added from index.html */
+        .copyright-text {
             position: absolute;
             bottom: 10px;
             left: 50%;
@@ -108,26 +108,15 @@
         }
 
 
-        /* Custom styles for Swiper pagination and navigation */
-        .swiper-pagination-bullet {
-            background: rgba(255, 255, 255, 0.6) !important;
-            opacity: 1 !important;
-            width: 8px !important; /* Changed from 10px to match index.html */
-            height: 8px !important; /* Changed from 10px to match index.html */
-            transition: background-color 0.3s ease, border 0.3s ease;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: #ffffff !important;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
+        /* Custom styles for Swiper navigation */
+        /* REMOVED: .swiper-pagination-bullet and .swiper-pagination-bullet-active styles */
 
         .swiper-button-next, .swiper-button-prev {
             color: #ffffff !important;
             background-color: rgba(0, 0, 0, 0.3) !important;
             border-radius: 50% !important;
-            width: 36px !important; /* Changed from 44px to match index.html */
-            height: 36px !important; /* Changed from 44px to match index.html */
+            width: 36px !important;
+            height: 36px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -137,7 +126,7 @@
         }
         /* Adjust icon size within buttons if needed */
         .swiper-button-next::after, .swiper-button-prev::after {
-            font-size: 16px !important; /* Added from index.html */
+            font-size: 16px !important;
         }
 
         .swiper-button-next:hover, .swiper-button-prev:hover {
@@ -147,30 +136,32 @@
 
         /* Adjusted arrow position using the new variable for more control */
         .swiper-button-prev {
-            left: var(--swiper-nav-offset) !important; /* Changed to use variable from index.html */
+            left: var(--swiper-nav-offset) !important;
         }
         .swiper-button-next {
-            right: var(--swiper-nav-offset) !important; /* Changed to use variable from index.html */
+            right: var(--swiper-nav-offset) !important;
         }
-        @media (max-width: 768px) { /* Added mobile media query from index.html */
+
+        /* MODIFIED: Mobile media query adjustments */
+        @media (max-width: 768px) {
             .hero-swiper-section {
-                height: 60vh !important;
+                height: 100vh !important; /* Adjusted for better mobile display */
             }
 
             .swiper-container.hero-swiper,
             .swiper-slide {
-                height: 70% !important;
+                height: 100% !important; /* Ensure slides fill their container */
             }
 
             .swiper-slide img {
-                height: 60vh !important;
-                object-fit: cover !important;
+                height: auto !important; /* Allow height to adjust for aspect ratio */
+                max-height: 100% !important; /* Confine to slide height */
+                object-fit: contain !important; /* Crucial for preserving aspect ratio */
             }
-             :root {
-            --header-height: 48px; /* Changed from 64px to match index.html */
-            --header-total-offset: 150px; /* Added from index.html */
-            --swiper-nav-offset: 20px; /* Added from index.html */
-        }
+            :root {
+                --header-total-offset: 150px; /* Adjusted for mobile header space */
+                --swiper-nav-offset: 10px; /* Reduced navigation button offset */
+            }
         }
     </style>
 </head>
@@ -209,49 +200,48 @@
         <div class="swiper mySwiper hero-swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="images/Project30--12.jpg" alt="Project30 Image 1" class="w-full h-full object-cover">
+                    <img src="images/Project30--12.jpg" alt="Project30 Image 1">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--18.jpg" alt="Project30 Image 4" class="w-full h-full object-cover">
+                    <img src="images/Project30--18.jpg" alt="Project30 Image 4">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--2 (1).jpg" alt="Project30 Image 4" class="w-full h-full object-cover">
+                    <img src="images/Project30--2 (1).jpg" alt="Project30 Image 4">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--13.jpg" alt="Project30 Image 2" class="w-full h-full object-cover">
+                    <img src="images/Project30--13.jpg" alt="Project30 Image 2">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--22.jpg" alt="Project30 Image 4" class="w-full h-full object-cover">
+                    <img src="images/Project30--22.jpg" alt="Project30 Image 4">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--23.jpg" alt="Project30 Image 4" class="w-full h-full object-cover">
+                    <img src="images/Project30--23.jpg" alt="Project30 Image 4">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--14.jpg" alt="Project30 Image 3" class="w-full h-full object-cover">
+                    <img src="images/Project30--14.jpg" alt="Project30 Image 3">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--3.jpg" alt="Project30 Image 4" class="w-full h-full object-cover">
+                    <img src="images/Project30--3.jpg" alt="Project30 Image 4">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--31.jpg" alt="Project30 Image 4" class="w-full h-full object-cover">
+                    <img src="images/Project30--31.jpg" alt="Project30 Image 4">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--33.jpg" alt="Project30 Image 4" class="w-full h-full object-cover">
+                    <img src="images/Project30--33.jpg" alt="Project30 Image 4">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--4.jpg" alt="Project30 Image 4" class="w-full h-full object-cover">
+                    <img src="images/Project30--4.jpg" alt="Project30 Image 4">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/Project30--5 (1).jpg" alt="Project30 Image 4" class="w-full h-full object-cover">
+                    <img src="images/Project30--5 (1).jpg" alt="Project30 Image 4">
                 </div>
             </div>
 
-            <div class="swiper-pagination"></div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
         <div class="copyright-text">
-            <p>&copy; 2025 Benjamin Ade Photography. All rights reserved.</p>
+            <p>&copy; 2025 Benjamin Ade Productions. All rights reserved.</p>
         </div>
     </section>
 
@@ -280,36 +270,33 @@
                     disableOnInteraction: false,
                 },
                 grabCursor: true,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
+                // REMOVED: pagination configuration
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
                 },
-                effect: 'slide', // Ensures standard horizontal sliding
-                centeredSlides: true, // Essential for showing partial slides on the sides
-                slidesPerView: 1.5, // Default for very small screens: 1.5 visible slides (1 full, 0.5 of next/prev)
-                spaceBetween: 30,  // Increased spacing for a clear gap between images
+                effect: 'slide',
+                centeredSlides: true,
+                slidesPerView: 1.5,
+                spaceBetween: 30,
 
                 // Breakpoints for responsive behavior
                 breakpoints: {
-                    640: { // For screens >= 640px (small tablets)
-                        slidesPerView: 2.5, // Show 2.5 slides
+                    640: {
+                        slidesPerView: 2.5,
                         spaceBetween: 30,
                     },
-                    768: { // For screens >= 768px (larger tablets/small desktops)
-                        slidesPerView: 3.5, // Show 3.5 slides (3 full + part of the 4th)
-                        spaceBetween: 40, // More spacing for larger screens
-                    },
-                    1024: { // For screens >= 1024px (desktops)
+                    768: {
                         slidesPerView: 3.5,
-                        spaceBetween: 50, // Even more spacing
+                        spaceBetween: 40,
                     },
-                    1280: { // For screens >= 1280px (larger desktops, if needed)
+                    1024: {
                         slidesPerView: 3.5,
-                        spaceBetween: 60, // Adjust as needed
+                        spaceBetween: 50,
+                    },
+                    1280: {
+                        slidesPerView: 3.5,
+                        spaceBetween: 60,
                     }
                 }
             });
@@ -338,7 +325,7 @@
                     modalImg.src = this.src;
                     modalImg.style.maxWidth = '90%';
                     modalImg.style.maxHeight = '90%';
-                    modalImg.style.objectFit = 'contain';
+                    modalImg.style.objectFit = 'contain'; /* Ensure modal image is also fully visible */
 
                     modal.appendChild(modalImg);
                     body.appendChild(modal);
