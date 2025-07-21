@@ -157,7 +157,7 @@
                 object-fit: contain !important; /* Crucial for preserving aspect ratio */
             }
              :root {
-            --header-total-offset: 150px; /* Adjusted for mobile header space */
+            --header-total-offset: 180px; /* Adjusted for mobile header space */
             --swiper-nav-offset: 10px; /* Reduced navigation button offset */
             }
         }
@@ -308,11 +308,11 @@
             // Swiper Initialization
             var swiper = new Swiper(".mySwiper", {
                 loop: true,
-                autoplay: {
+               /* autoplay: {
                     delay: 3000,
                     disableOnInteraction: false,
                 },
-                grabCursor: true,
+                grabCursor: true,*/
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
